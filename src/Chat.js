@@ -5,15 +5,26 @@ import MessageList from './MessageList'
 import MessageForm from './MessageForm'
 
 class Chat extends Component {
-    render () {
-        return (
-            <div className="Chat">
-            <ChatHeader />
-            <MessageList />
-            <MessageForm />
-            </div>
-        )
+  constructor() {
+    super()
+
+    this.state = {
+      messages: [
+        { id: 1, userName: 'Jim', body: 'I, too, enjoy chatting.' },
+        { id: 2, userName: 'Kiffmeyer', body: 'This guy is so hip. I love my job.' },
+      ],
     }
+  }
+
+  render() {
+    return (
+      <div className="Chat">
+        <ChatHeader />
+        <MessageList messages={this.state.messages} />
+        <MessageForm />
+      </div>
+    )
+  }
 }
 
 export default Chat
