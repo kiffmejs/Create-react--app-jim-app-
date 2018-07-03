@@ -10,10 +10,23 @@ class Chat extends Component {
 
     this.state = {
       messages: [
-        { id: 1, userName: 'Jim', body: 'I, too, enjoy chatting.' },
-        { id: 2, userName: 'Kiffmeyer', body: 'This guy is so hip. I love my job.' },
+        { id: 1, userName: 'Jim', body: 'I wish I was watching the World Cup' },
+        { id: 2, userName: 'Kiffmeyer', body: 'Same here' },
       ],
     }
+  }
+
+  addMessage = () => {
+    const messages = [...this.state.messages]
+    const userName = 'Random Guy'
+
+    messages.push({
+      id: `${userName}-${Date.now()}`,
+      userName: userName,
+      body: 'Then go watch it!',
+    })
+
+    this.setState({ messages: messages })
   }
 
   render() {
@@ -21,7 +34,7 @@ class Chat extends Component {
       <div className="Chat">
         <ChatHeader />
         <MessageList messages={this.state.messages} />
-        <MessageForm />
+        <MessageForm addMessage={this.addMessage} />
       </div>
     )
   }
