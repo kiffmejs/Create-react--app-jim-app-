@@ -9,26 +9,7 @@ class Chat extends Component {
     super()
 
     this.state = {
-      messages: [
-        {
-            id: 1,
-            user: {
-              uid: 123,
-              displayName: 'Jim',
-              email: 'jkiff22@gmail.com',
-            },
-            body: 'I love the World Cup!',
-        },
-        {
-          id: 2,
-          user: {
-            uid: 456,
-            displayName: 'Kiffmeyer',
-            email: 'kiffmejs@mail.uc.edu',
-          },
-          body: 'Same here!',
-        },
-      ],
+      messages: [],
     }
   }
 
@@ -49,7 +30,9 @@ class Chat extends Component {
     return (
       <div className="Chat" style={styles}>
         <ChatHeader />
-        <MessageList messages={this.state.messages} />
+        <MessageList
+          messages={this.state.messages}
+        />
         <MessageForm addMessage={this.addMessage} />
       </div>
     )
