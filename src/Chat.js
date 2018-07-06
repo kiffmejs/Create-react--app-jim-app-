@@ -17,16 +17,16 @@ class Chat extends Component {
               displayName: 'Jim',
               email: 'jkiff22@gmail.com',
             },
-            body: 'I wishI was watching the World Cup.',
+            body: 'I love the World Cup!',
         },
         {
           id: 2,
           user: {
             uid: 456,
-            displayName: 'Guy',
-            email: 'guy@gmail.com',
+            displayName: 'Kiffmeyer',
+            email: 'kiffmejs@mail.uc.edu',
           },
-          body: 'Same here.',
+          body: 'Same here!',
         },
       ],
     }
@@ -47,13 +47,19 @@ class Chat extends Component {
 
   render() {
     return (
-      <div className="Chat">
+      <div className="Chat" style={styles}>
         <ChatHeader />
         <MessageList messages={this.state.messages} />
         <MessageForm addMessage={this.addMessage} />
       </div>
     )
   }
+}
+
+const styles = {
+  flex: 1,
+  display: 'flex',
+  flexDirection: 'column',
 }
 
 export default Chat
